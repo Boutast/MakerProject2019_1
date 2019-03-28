@@ -25,10 +25,21 @@ class Module:
         cv2.imshow("Gray", gray_image)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
+    def loading_cam():
+        cap = cv2.VideoCapture(0)
+        while True:
+            ret, frame = cap.read()
+            cv2.imshow("frame", frame)
+            key = cv2.waitKey(1)
+            if key == 27:
+                break
+        cap.release()
+        cv2.destroyAllWindows()
 
 def main():
     Module.camera_test()
     Module.gray_image()
+    Module.loading_cam()
 
 if __name__ == '__main__':
     main();
