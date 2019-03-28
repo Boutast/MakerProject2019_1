@@ -8,6 +8,7 @@
 
 import numpy as np
 import cv2
+import sys
 
 class Module:
     nb = 3
@@ -18,6 +19,16 @@ class Module:
         cv2.imshow('image', img)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
-        
-print(Module.nb)
-Module.camera_test()
+    def gray_image():
+        image = cv2.imread("test_cat4.jpg")
+        gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        cv2.imshow("Gray", gray_image)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+
+def main():
+    Module.camera_test()
+    Module.gray_image()
+
+if __name__ == '__main__':
+    main();
